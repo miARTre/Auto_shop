@@ -2,6 +2,7 @@ import {Injectable} from "@nestjs/common";
 import {UserDao} from "../dao/user.dao";
 import {User} from "../models/user.entity";
 
+
 @Injectable()
 export class AuthService {
     constructor(private userDao: UserDao) {
@@ -13,5 +14,9 @@ export class AuthService {
 
     async findOneByEmail(email: string): Promise<User> {
         return this.userDao.findOneByEmail(email)
+    }
+
+    findOneByData(condition: any): Promise<User> {
+        return this.userDao.findOneByData(condition);
     }
 }

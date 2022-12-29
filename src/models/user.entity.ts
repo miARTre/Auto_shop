@@ -9,16 +9,16 @@ export class User {
     @Column()
     name: string;
 
-    @Column()
+    @Column({unique: true})
     username: string;
 
-    @Column()
+    @Column({unique: true})
     password: string;
 
-    @Column()
+    @Column({unique: true})
     mobile: number;
 
-    @Column()
+    @Column({unique: true})
     email: string;
 
     @Column()

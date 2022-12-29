@@ -23,6 +23,10 @@ export class UserDao {
         return this.usersRepository.findOneBy({email});
     }
 
+    findOneByData(condition: any): Promise<User> {
+        return this.usersRepository.findOneBy(condition);
+    }
+
     async remove(id: string): Promise<void> {
         await this.usersRepository.delete(id);
     }
