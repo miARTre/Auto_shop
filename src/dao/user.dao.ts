@@ -19,12 +19,17 @@ export class UserDao {
         return this.usersRepository.findOneBy({id});
     }
 
-    findOneByEmail(email: string): Promise<User> {
-        return this.usersRepository.findOneBy({email});
-    }
+    // findOneByEmail(email: string): Promise<User> {
+    //     return this.usersRepository.findOneBy({email});
+    // }
+    //
 
-    findOneByData(condition: any): Promise<User> {
-        return this.usersRepository.findOneBy(condition);
+        // findOneByData(condition: any): Promise<User> {
+        //     return this.usersRepository.findOneBy(condition);
+        // }
+
+    findByUserName(username: string): Promise<User | undefined> {
+        return this.usersRepository.findOneBy({username});
     }
 
     async remove(id: string): Promise<void> {

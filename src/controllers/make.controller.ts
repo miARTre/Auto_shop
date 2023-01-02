@@ -8,8 +8,6 @@ export class MakeController {
     constructor(private readonly makeService: MakeService) {
     }
 
-
-
 }
 
 

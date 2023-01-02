@@ -20,6 +20,9 @@ import {JwtModule} from "@nestjs/jwt";
 import {AuthController} from "./controllers/auth.controller";
 import {AuthService} from "./services/auth.service";
 import {UserService} from "./services/user.service";
+import {LocalStrategy} from "./local.strategy/local.strategy";
+import {PassportModule} from "@nestjs/passport";
+import {JwtStrategy} from "./local.strategy/jwt.strategy";
 
 @Module({
     imports: [
@@ -37,12 +40,13 @@ import {UserService} from "./services/user.service";
         JwtModule.register({
             secret: 'SECRET',
             signOptions: {expiresIn: '1y'},
-        })
+        }),
+        PassportModule,
     ],
     controllers: [MakeController, PostController, AuthController],
     providers: [UserDao, PostDao, MakeDao,
         ModelDao, Vehicle_optional_equipmentDao,
-        VehicleDao, MakeService, PostsService, AuthService, UserService],
+        VehicleDao, MakeService, PostsService, AuthService, UserService, LocalStrategy, JwtStrategy],
 })
 export class AppModule {
 }
